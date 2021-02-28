@@ -4,6 +4,11 @@
     padding: 1.5rem 2rem;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
+}
+
+.card:hover {
+    background-color: var(--bg-card--hover)
 }
 
 .card__top, .card__body {

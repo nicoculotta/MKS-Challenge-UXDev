@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import './App.css';
 
@@ -13,6 +13,25 @@ const App = () => {
 
   // the state to handle the theme mode option
   const [ theme, setTheme ] = useState('dark')
+  
+  // states to save data
+  const [dataBigCards, setDataBigCards ] = useState([]);
+  const [dataCards, setDataCards ] = useState([]);
+
+  // modal state
+  const [modalOpen, setModalOpen] = useState(false);
+
+  // function to get data from data.json
+  const getData = async() => {
+    const res = await fetch('data.json');
+    const data = await res.json()
+    setDataBigCards(data.bigCards)
+    setDataCards(data.cards)
+  }
+  useEffect( () => {
+    getData()
+  }, [])
+
 
   // function to change the theme
   const toogleTheme = () => {
@@ -25,23 +44,21 @@ const App = () => {
     }
     
   }
-
-  // MODAL
-  const [modalOpen, setModalOpen] = useState(false);
    
+  //"open or close" modal functions
   const handlerModalOpen = (e) => {
       setModalOpen(true)
   }
-
   const closeModal = () => {
       setModalOpen(false)
   }
+
 
   return (
     <div className={`App ${theme}`}>
 
       <div className="bg-top"></div>
-      
+     
       <div className="main--container">
         <header>
           <div className="header__title">
@@ -56,10 +73,22 @@ const App = () => {
 
         <section>
           <div className="big-cards--container">
-            <BigCard handlerModalOpen={handlerModalOpen} border="facebook" iconSocial="./images/icon-facebook.svg" username="@nathanf" followersNum="1987" followersType="Followers" statsNum="12" statsValue="up"/>
-            <BigCard handlerModalOpen={handlerModalOpen} border="twitter" iconSocial="./images/icon-twitter.svg" username="@nathanf" followersNum="1044" followersType="Followers" statsNum="99" statsValue="up"/>
-            <BigCard handlerModalOpen={handlerModalOpen} border="instagram" iconSocial="./images/icon-instagram.svg" username="@realnathanf" followersNum="11k" followersType="Followers" statsNum="1099" statsValue="up"/>
-            <BigCard handlerModalOpen={handlerModalOpen} border="youtube" iconSocial="./images/icon-youtube.svg" username="Nathan F." followersNum="8239" followersType="Subscribers" statsNum="144" statsValue="down"/>
+            {
+              dataBigCards.map( (card, index) => (
+                <div>
+                  <BigCard key={index}
+                    handlerModalOpen={handlerModalOpen}
+                    border={card.border}
+                    iconSocial={`./images/${card.iconSocial}`}
+                    username={card.username}
+                    followersNum={card.followersNum}
+                    followersType={card.followersType}
+                    statsNum={card.statsNum}
+                    statsValue={card.statsValue}
+                  />
+                </div>
+              ))
+            }
           </div>
 
           <h2 className="section__title">
@@ -67,14 +96,18 @@ const App = () => {
           </h2>
 
           <div className="cards--container">
-            <Cards title="Page Views" iconSocial="./images/icon-facebook.svg" number="87" statsNum="3" statsValue="up"/>
-            <Cards title="Likes" iconSocial="./images/icon-facebook.svg" number="52" statsNum="2" statsValue="down"/>
-            <Cards title="Likes" iconSocial="./images/icon-instagram.svg" number="5462" statsNum="2257" statsValue="up"/>
-            <Cards title="Profile Views" iconSocial="./images/icon-instagram.svg" number="52k" statsNum="1375" statsValue="up"/>
-            <Cards title="Retweets" iconSocial="./images/icon-twitter.svg" number="117" statsNum="303" statsValue="up"/>
-            <Cards title="Likes" iconSocial="./images/icon-twitter.svg" number="507" statsNum="553" statsValue="up"/>
-            <Cards title="Likes" iconSocial="./images/icon-youtube.svg" number="107" statsNum="19" statsValue="down"/>
-            <Cards title="Total Views" iconSocial="./images/icon-youtube.svg" number="1407" statsNum="12" statsValue="down"/>
+            {
+              dataCards.map( (card, index) => (
+                <Cards
+                  key={index}
+                  title={card.title}
+                  iconSocial={`./images/${card.iconSocial}`}
+                  number={card.number}
+                  statsNum={card.statsNum}
+                  statsValue={card.statsValue}
+                />
+              ))
+            }
           </div>
 
           <Modal 

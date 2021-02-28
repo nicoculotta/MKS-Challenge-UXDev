@@ -12,7 +12,7 @@ const Cards = (props) => {
                 <span>{props.number}</span>
                 <div className={`card__body__stats card__body__stats--${props.statsValue}`}>
                     <img src={ props.statsValue === 'up' ? "./images/icon-up.svg" : "./images/icon-down.svg" } alt="icon" width="8" height="4"/>
-                    <span>{props.statsNum} %</span>
+                    <span>{props.statsNum}%</span>
                 </div>
             </div>
         </div>

@@ -1,0 +1,98 @@
+{
+    "bigCards": [
+        {
+            "username": "@nathanf",
+            "followersNum": 1987,
+            "followersType": "Followers",
+            "statsNum": 12,
+            "statsValue": "up",
+            "iconSocial": "icon-facebook.svg",
+            "border": "facebook"
+        },
+        {
+            "username": "@nathanf",
+            "followersNum": 1044,
+            "followersType": "Followers",
+            "statsNum": 99,
+            "statsValue": "up",
+            "iconSocial": "icon-twitter.svg",
+            "border": "twitter"
+        },
+        {
+            "username": "@realnathanf",
+            "followersNum": "11k",
+            "followersType": "Followers",
+            "statsNum": 1099,
+            "statsValue": "up",
+            "iconSocial": "icon-instagram.svg",
+            "border": "instagram"
+        },
+        {
+            "username": "Nathan F.",
+            "followersNum": 8239,
+            "followersType": "Subscribers",
+            "statsNum": 144,
+            "statsValue": "up",
+            "iconSocial": "icon-youtube.svg",
+            "border": "youtube"
+        }
+    ],
+    "cards": [
+        {
+            "title": "Page Views",
+            "iconSocial": "icon-facebook.svg",
+            "number": 87,
+            "statsNum": 3,
+            "statsValue": "up"        
+        },
+        {
+            "title": "Likes",
+            "iconSocial": "icon-facebook.svg",
+            "number": 52,
+            "statsNum": 2,
+            "statsValue": "down"        
+        },
+        {
+            "title": "Likes",
+            "iconSocial": "icon-instagram.svg",
+            "number": 5462,
+            "statsNum": 2257,
+            "statsValue": "up"        
+        },
+        {
+            "title": "Profile Views",
+            "iconSocial": "icon-instagram.svg",
+            "number": "52k",
+            "statsNum": 1375,
+            "statsValue": "up"        
+        },
+        {
+            "title": "Retweets",
+            "iconSocial": "icon-twitter.svg",
+            "number": 117,
+            "statsNum": 303,
+            "statsValue": "up"        
+        },
+        {
+            "title": "Likes",
+            "iconSocial": "icon-twitter.svg",
+            "number": 507,
+            "statsNum": 553,
+            "statsValue": "up"        
+        },
+        {
+            "title": "Likes",
+            "iconSocial": "icon-youtube.svg",
+            "number": 107,
+            "statsNum": 19,
+            "statsValue": "down"        
+        },
+        {
+            "title": "Total Views",
+            "iconSocial": "icon-youtube.svg",
+            "number": 1407,
+            "statsNum": 12,
+            "statsValue": "down"        
+        }
+    ]
+}

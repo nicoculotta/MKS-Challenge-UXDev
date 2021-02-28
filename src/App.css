@@ -92,7 +92,6 @@ select {
 }
 
 .App {
-  background-color: var(--bg);
   color: var(--text);
   transition: .3s;
   padding-bottom: 3rem;
@@ -132,11 +131,14 @@ body {
 
 .bg-top {
   position: fixed;
-  z-index: -1;
   height: 300px;
   width: 100%;
   background-color: var(--bg-top);
   border-radius: 0 0 20px 20px;
+}
+
+.header__title, .header__toggle-switch  {
+  z-index: 1;
 }
 
 
@@ -226,6 +228,7 @@ header {
   right: 0;
   bottom: 0;
   background-color: rgba(0,0,0,0.5);
+  z-index: 2;
 }
 
 .modal-reset {
